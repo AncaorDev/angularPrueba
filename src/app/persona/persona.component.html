@@ -1,0 +1,41 @@
+Personas
+<div *ngIf="flg_mostrar_tabla == true" style="width: 500px;height: auto;" [ngStyle]="{'background-color':color}">
+	<hr>
+	<!-- <input type="text" [(ngModel)]="color">	 -->
+	<label for="">Nombre:</label> <br>
+	<input type="text" [(ngModel)]="nombre">	
+	<br>
+	<label for="">Apellido:</label> <br>
+	<br>
+	<input type="text" [(ngModel)]="apellido">
+	<br>
+	<label for="">Edad:</label>
+	<br>
+	<input type="text" [(ngModel)]="edad">
+	<br>
+	<button (click)="asignarData()">Guardar</button>
+
+	<hr>
+	<button (click)="activeDesactive(false)">Ocultar</button>
+	<table>
+		<thead>
+			<tr>
+				<td>Nombre</td>
+				<td>Apellido</td>
+				<td>Edad</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let pers of personas;let i = index">
+				<td> {{pers.nombre}} </td>
+				<td> {{pers.apellido}}</td>
+				<td> {{pers.edad}}</td>	
+				<td> <button (click)="capturarDatos(pers,i)">Capturar</button></td>	
+			</tr>
+		</tbody>	
+	</table>
+</div>
+<div *ngIf="flg_mostrar_tabla == false">
+	<button (click)="activeDesactive(true)">Mostrar</button>
+	La tabla esta oculta
+</div>
