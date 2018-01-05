@@ -5,31 +5,50 @@ Personas
 	<label for="">Nombre:</label> <br>
 	<input type="text" [(ngModel)]="nombre">	
 	<br>
-	<label for="">Apellido:</label> <br>
+	<label for="">Apellido PAT:</label> <br>
 	<br>
-	<input type="text" [(ngModel)]="apellido">
+	<input type="text" [(ngModel)]="apellido_pat">
 	<br>
-	<label for="">Edad:</label>
+	<label for="">Apellido MAT:</label>
 	<br>
-	<input type="text" [(ngModel)]="edad">
+	<input type="text" [(ngModel)]="apellido_mat">
+	<br>
+	<label for="">Documento:</label>
+	<br>
+	<input type="text" [(ngModel)]="documento">
+	<br>
+	<label for="">Fecha Nac:</label>
+	<br>
+	<input type="text" [(ngModel)]="fecha_nac">
 	<br>
 	<button (click)="asignarData()">Guardar</button>
 
 	<hr>
 	<button (click)="activeDesactive(false)">Ocultar</button>
+	<br>
+	<br>
+	<input type="text" [(ngModel)]="filtro">
+	----
+	<button (click)="filtrarData()">Filtrar</button>
 	<table>
 		<thead>
 			<tr>
+				<td>nid_persona</td>
 				<td>Nombre</td>
 				<td>Apellido</td>
-				<td>Edad</td>
+				<td>Apellido</td>
+				<td>Documento</td>
+				<td>Fecha Nac.</td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr *ngFor="let pers of personas;let i = index">
-				<td> {{pers.nombre}} </td>
-				<td> {{pers.apellido}}</td>
-				<td> {{pers.edad}}</td>	
+				<td> {{pers.nid_persona}} </td>
+				<td> {{pers.nom_persona}} </td>
+				<td> {{pers.ape_pate_pers}}</td>
+				<td> {{pers.ape_mate_pers}}</td>	
+				<td> {{pers.nro_documento}}</td>	
+				<td> {{pers.fec_naci}}</td>	
 				<td> <button (click)="capturarDatos(pers,i)">Capturar</button></td>	
 			</tr>
 		</tbody>	
