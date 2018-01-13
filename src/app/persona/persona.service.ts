@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PersonaService {
-    url = 'http://localhost:3978/tesoreria/getPersonas';
-    url_update = 'http://localhost:3978/tesoreria/getPersonasUpdate';
-    url_filtro = 'http://localhost:3978/tesoreria/getPersonasFiltro';
+    url = 'http://localhost:3978/persona/getPersonas';
+    url_update = 'http://localhost:3978/persona/getPersonasUpdate';
+    url_filtro = 'http://localhost:3978/persona/getPersonasFiltro';
     constructor(public _http: Http) {
     }
 

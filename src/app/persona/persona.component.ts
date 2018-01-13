@@ -65,7 +65,7 @@ export class PersonaComponent {
 	recibirListado(){
 		this.personaService.getListaOnline().subscribe(
 			result => {
-				//  console.log(<any>result);
+				 console.log(<any>result);
 				this.personas = result;
 				},
 			error => {
