@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PersonaComponent } from './persona/persona.component';
 import { CursoComponent } from './curso/curso.component';
+import { PermisosComponent } from './permisos/permisos.component';
 import { AppRoutingModule } from './app.routing';
 import { FormsModule,ReactiveFormsModule }    from '@angular/forms';
 
@@ -13,7 +14,8 @@ import { FormsModule,ReactiveFormsModule }    from '@angular/forms';
   declarations: [
     AppComponent,
     PersonaComponent,
-    CursoComponent
+    CursoComponent,
+    PermisosComponent
   ],
   imports: [
     BrowserModule,
