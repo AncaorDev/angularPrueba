@@ -1,4 +1,32 @@
-Permisos
+<h4>Permisos</h4>
+
+<span>Filtrar M&oacute;dulo</span>
+<select name="" id="" [(ngModel)]="select_sistema" (ngModelChange)="obtenerSistema($event)"> 
+	<option value="0">Seleccione un m&oacute;dulo </option>
+	<option  *ngFor="let sist of sistemas;let i = index" value="{{ sist.nid_sistema }}"> {{ sist.desc_sist }} </option>
+</select>	
+
+
+
+<table border="1" *ngIf="!mostrar_tabla">
+<thead>
+	<td>Permiso</td>
+	<td>Sistema</td>
+</thead>
 <tr *ngFor="let per of permisos;let i = index">
 	<td> {{per['desc_permiso']}} </td>
-</tr>
+	<td> {{ per.desc_sist }}</td>
+</tr>	
+</table>
+
+
+<table border="1" *ngIf="mostrar_tabla">
+<thead>
+	<td>Permiso</td>
+	<td>Sistema</td>
+</thead>
+<tr *ngFor="let per of permisos_sistema;let i = index">
+	<td> {{ per['desc_permiso']}} </td>
+	<td> {{ per.desc_sist }}</td>
+</tr>	
+</table>

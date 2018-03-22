@@ -5,12 +5,22 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PermisosService {
-    url = 'http://localhost:3978/permisos/getPermisos';
+    url_permisos =  'http://localhost:3978/permisos/';
+
     constructor(public _http: Http) {
     }
 
-    getListaOnline(){
+    getListaPermisos(){
+        return this._http.get(this.url_permisos+'getPermisos').map(res => res.json());
+    }
+
+    getListaSistema(){
+        return this._http.get(this.url_permisos+'getModulos').map(res => res.json());
+    }
+
+    getListaPermisosbySistema(filtro) {
+        let  data = {"id_modulo" : filtro};
         let headers = new Headers({'Content-Type':'application/json'});
-        return this._http.get(this.url).map(res => res.json());
+        return this._http.post(this.url_permisos+'getPermisosbyIdModulo', JSON.stringify(data) ,{headers:headers}).map(res => res.json());
     }
 }
