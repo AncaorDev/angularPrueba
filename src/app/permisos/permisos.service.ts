@@ -23,4 +23,10 @@ export class PermisosService {
         let headers = new Headers({'Content-Type':'application/json'});
         return this._http.post(this.url_permisos+'getPermisosbyIdModulo', JSON.stringify(data) ,{headers:headers}).map(res => res.json());
     }
+
+    updPermisobyId(json_update) {
+        let data = json_update;
+        let headers = new Headers({'Content-Type':'application/json'});
+        return this._http.post(this.url_permisos+'updPermisobyId', JSON.stringify(data) ,{headers:headers}).map(res => res.json());
+    }
 }

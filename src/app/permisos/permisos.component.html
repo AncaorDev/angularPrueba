@@ -12,21 +12,11 @@
 <thead>
 	<td>Permiso</td>
 	<td>Sistema</td>
+	<td>Estado</td>
 </thead>
 <tr *ngFor="let per of permisos;let i = index">
-	<td> {{per['desc_permiso']}} </td>
+	<td> {{ per.desc_permiso }} </td>
 	<td> {{ per.desc_sist }}</td>
-</tr>	
-</table>
-
-
-<table border="1" *ngIf="mostrar_tabla">
-<thead>
-	<td>Permiso</td>
-	<td>Sistema</td>
-</thead>
-<tr *ngFor="let per of permisos_sistema;let i = index">
-	<td> {{ per['desc_permiso']}} </td>
-	<td> {{ per.desc_sist }}</td>
+	<td> <button (click)="updPermisobyId(per.nid_permiso,per.flg_habilitado)"> {{per.text_habilitado}}</button> </td>
 </tr>	
 </table>

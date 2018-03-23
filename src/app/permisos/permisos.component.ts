@@ -13,12 +13,12 @@ export class PermisosComponent {
 	public permisos_sistema:Array<any>;
 	public sistemas:Array<any>;
 	public select_sistema:any;
-	public mostrar_tabla:boolean;
 
     constructor(public permisosService : PermisosService){
 		this.permisosService.getListaPermisos().subscribe(
 			result => {
 				this.permisos = result;
+				console.log(this.permisos);
 				},
 			error => {
 				console.log(<any>error);	
@@ -37,24 +37,42 @@ export class PermisosComponent {
     }
  	
  	ngOnInit() {
- 		this.mostrar_tabla  = false;
  		this.select_sistema = 0;
  	}
 
  	obtenerSistema() {
- 		this.permisosService.getListaPermisosbySistema(this.select_sistema).subscribe(
- 			result => {
- 				this.mostrar_tabla  = true;
- 				console.log(result);
- 				this.permisos_sistema = result;
- 				console.log(this.permisos_sistema);
- 			},
- 			error => {
- 				console.log(<any>error);
- 			}
- 		);
+ 		if (this.select_sistema != 0) {
+			this.permisosService.getListaPermisosbySistema(this.select_sistema).subscribe(
+	 			result => {
+					this.permisos = result;
+	 			},
+	 			error => {
+	 				console.log(<any>error);
+	 			}
+	 		);
+ 		}
 	}
 
+	updPermisobyId(nid_permiso,flg_habilitado) {
+		if(flg_habilitado == null || flg_habilitado == 'N') {
+			flg_habilitado = 'S';
+		} else {
+			flg_habilitado = 'N';
+		}
+		var json_update = {'nid_permiso' : nid_permiso , 'flg_habilitado' : flg_habilitado };
+		this.permisosService.updPermisobyId(json_update).subscribe(
+			result => {
+			   console.log(result);
+			   this.obtenerSistema();
+			},
+			error => {
+				console.log(<any>error);
+			}
+		);
+		console.log(flg_habilitado);
+		console.log(nid_permiso);
+	}
+	
 	recibirListado(){
 		
 	}
