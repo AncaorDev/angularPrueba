@@ -33,7 +33,7 @@ export class PersonaComponent {
 	activeDesactive(flg) {
 		this.flg_mostrar_tabla = flg;
 	}
-
+x
 	capturarDatos(tg,i) {
 		this.nombre        = tg.nom_persona;
 		this.apellido_pat  = tg.ape_pate_pers;
