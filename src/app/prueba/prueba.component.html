@@ -1,8 +1,8 @@
-<p *ngIf="isShow; else isBlock"> Mostrando data de {{ name }}  </p>
-<ng-template id="isIdentidifier" #isBlock>
-  <p [ngStyle]="{'color': color }">Sin Información</p>
-</ng-template>
-<p *ngIf="url" [ngClass]="isShow ? 'blue':'red'">url : {{ url }}</p>
-<p *ngIf="blog" [ngClass]="isShow ? 'blue':'red'">blog : {{ blog }}</p>
-<button (click)="showMessage()">{{info_btn}}</button>
-<input type="text" [(ngModel)]="name">
+
+<ul>
+  <li *ngFor="let user of users" (click)="selectUser(user)"><img [src]="user.avatar_url" alt="">
+    <h2>{{user.login}}
+      <h3>{{user.site_admin}}</h3>
+    </h2>
+  </li>
+</ul>

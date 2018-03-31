@@ -1,0 +1,5 @@
+ul
+    li(*ngFor="let user of users", (click)="selectUser(user)")
+        img([src]="user.avatar_url", alt="")
+        h2 {{user.login}}
+            h3 {{user.site_admin}}

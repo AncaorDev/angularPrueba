@@ -1,0 +1,24 @@
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+li {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px;
+    border-top: 1px solid gray; 
+}
+img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+h2,h3 {
+    margin: 0;
+    font-size: 16px;
+    padding-left: 10px;
+}
+h3 {
+    font-size: 14px;
+}

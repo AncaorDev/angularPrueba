@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { PruebaService } from './prueba.service';
 
 @Component({
   selector: 'prueba',
   templateUrl: './prueba.component.html',
+  styleUrls  : ['prueba.component.scss'],
   providers : [PruebaService]
 })
 
@@ -18,12 +19,16 @@ export class PruebaComponent {
     name: string = "";
     url: string  = "";
     blog: string  = "";
+    users:any;
+
+    @Output() onUserSelect = new EventEmitter();
+    
     constructor(public pruebaService : PruebaService){
       
     }
  	
  	ngOnInit() {
-        
+        this.getAllUser();
  	}
 
     //metodoa publico
@@ -46,5 +51,16 @@ export class PruebaComponent {
 				console.log(<any>error);	
 			}
 		);
+    }
+
+    getAllUser() {
+        this.pruebaService.getAllUsers('users')
+            .subscribe(users => {
+                this.users = users
+            })
+    }
+    
+    selectUser(user:any) {
+        this.onUserSelect.emit(user);
     }
 }

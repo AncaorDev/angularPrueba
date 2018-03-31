@@ -10,6 +10,7 @@ import { PermisosComponent } from './permisos/permisos.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { AppRoutingModule } from './app.routing';
 import { FormsModule,ReactiveFormsModule }    from '@angular/forms';
+import { CsUserDetailComponent } from './cs-user-detail/cs-user-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule,ReactiveFormsModule }    from '@angular/forms';
     PersonaComponent,
     CursoComponent,
     PermisosComponent,
-    PruebaComponent
+    PruebaComponent,
+    CsUserDetailComponent
   ],
   imports: [
     BrowserModule,

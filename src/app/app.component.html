@@ -1,6 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+
+<div class="cs-row">
+  <div class="cs-item">
+    <prueba (onUserSelect)="userSelect($event)"></prueba>
+  </div>
+  <div class="cs-item">
+    <cs-user-detail [user]="usuario_nuevo"></cs-user-detail>
+  </div>
 </div>
-<router-outlet> </router-outlet>
-
-
